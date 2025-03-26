@@ -83,15 +83,127 @@ globalThis.name = 'Superman'
 
 // NEW BINDING OF this KEYWORD
 
-function Person(name){
-        // this = {} || new empty object
-    this.name = name
-}
+// function Person(name){
+//         // this = {} || new empty object
+//     this.name = name
+// }
 
-const p1 = new Person('Vishwas');
-const p2 = new Person('Batman');
+// const p1 = new Person('Vishwas');
+// const p2 = new Person('Batman');
 
-console.log(p1.name,p2.name);
+// console.log(p1.name,p2.name);
 
 
-sayMyName()
+// sayMyName()
+
+// PROTOTYPING
+
+// function Person(fName,lName){
+//     this.fName = fName
+//     this.lName = lName
+// }
+
+// Person.prototype.getFullName = function(){
+//     return this.fName + ' ' + this.lName
+// }
+
+// function SuperHero(fName,lName){
+//     // this = {}
+//     Person.call(this,fName,lName)
+//     this.isSuperHero = true
+// }
+
+// SuperHero.prototype.fightCrime = function(){
+//     console.log("Fighting crime")
+// }
+
+// SuperHero.prototype = Object.create(Person.prototype)
+
+// const batman = new SuperHero('Bruce','Wayne')
+
+// console.log(batman.getFullName())
+
+// SuperHero.prototype.constructor = SuperHero
+
+
+// const p1 = new Person('Bruce','Wayne'); // Constructor function
+// const p2 = new Person('Clark','Kent');
+
+
+// console.log(p1.getFullName())
+// console.log(p2.getFullName())
+
+// CLASSES
+
+// class Person{
+//     constructor(fName,lName){
+//         this.fName = fName
+//         this.lName = lName
+//     }
+
+//     sayMyName(){
+//         return this.fName + ' ' + this.lName
+//     }
+
+// }
+
+// const classP1 = new Person('Bruce','Wayne')
+// console.log(classP1.sayMyName())
+
+// class SuperHero extends Person{
+//     constructor(fName,lName){
+//         super(fName,lName)
+//         this.isSuperHero = true
+//     }
+//     fightCrime(){
+//         console.log("Fighting crime")
+//     }
+// }
+
+// const batman = new SuperHero('Bruce','Wayne')
+
+// console.log(batman.sayMyName())
+
+// ITERABLES | ITERATOR
+
+// const obj = {
+//     [Symbol.iterator]: function (){
+//         let step = 0
+//         const iterator = {
+//             next: function(){
+//                 step++
+//                 if(step === 1){
+//                     return {value:'Hello',done:false}
+//                 }else if (step === 2){
+//                     return {value:'World',done:false}
+//                 }
+//                 return {value: undefined, done:true}
+//             }
+//         }
+//         return iterator
+//     }
+// }
+
+// for (const word of obj){
+//     console.log(word)
+// }
+
+// GENERATORS
+
+// function normalFunction(){ // will not stop until the last line if executed
+//     console.log("Hello")
+//     console.log("World")
+// }
+
+// normalFunction()
+
+// function* generatorFunction(){
+//     yield 'Hello'
+//     yield 'World'
+// }
+
+// const generatorObject = generatorFunction()
+
+// for(const word of generatorObject){
+//     console.log(word)
+// }
